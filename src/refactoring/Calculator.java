@@ -16,4 +16,12 @@ public class Calculator {
 			return "Equation has no roots";
 		}
 	}
+	
+	public double sum(double... ds) {
+		double result = 0;
+		for (double d : ds) {
+			result += d;
+		}
+		return result;
+	}
 }
