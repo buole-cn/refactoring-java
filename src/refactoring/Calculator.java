@@ -4,16 +4,28 @@ public class Calculator {
 	public String calcQuadraticEq(double a, double b, double c) {
 		double D = b * b - 4 * a * c;
 		if (D > 0) {
-			double x1, x2;
-			x1 = (-b - Math.sqrt(D)) / (2 * a);
-			x2 = (-b + Math.sqrt(D)) / (2 * a);
-			return "x1 = " + x1 + ", x2 = " + x2;
+			return dGreaterThanZero(a, b, D);
 		} else if (D == 0) {
-			double x;
-			x = -b / (2 * a);
-			return "x = " + x;
+			return dEqualsZero(a, b);
 		} else {
-			return "Equation has no roots";
+			return dLessThanZero();
 		}
+	}
+
+	private String dGreaterThanZero(double a, double b, double D) {
+		double x1, x2;
+		x1 = (-b - Math.sqrt(D)) / (2 * a);
+		x2 = (-b + Math.sqrt(D)) / (2 * a);
+		return "x1 = " + x1 + ", x2 = " + x2;
+	}
+
+	private String dEqualsZero(double a, double b) {
+		double x;
+		x = -b / (2 * a);
+		return "x = " + x;
+	}
+	
+	private String dLessThanZero() {
+		return "Equation has no roots";
 	}
 }
